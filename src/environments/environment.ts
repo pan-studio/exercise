@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  beUrl: "https://gorest.co.in/public/v2/users",
+  beToken: "Bearer 0e556ec89c9f436607120ce2c9eeba3860c24c78d749e7a5ac0519945f9420c5"
 };
 
 /*
