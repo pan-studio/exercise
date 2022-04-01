@@ -1,88 +1,32 @@
-<section class="h-100 h-custom gradient-custom-2">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12">
-          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-            <div class="card-body p-0">
-              <div class="row g-0">
-                <div class="col-lg-6">
-                  <div class="p-5">
-                    <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
-  
-                    <div class="mb-4 pb-2">
-                      <select class="select">
-                        <option value="1">Title</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                      </select>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev2" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplev2">First name</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev3" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplev3">Last name</label>
-                        </div>
-  
-                      </div>
-                    </div>
-  
-                    <div class="mb-4 pb-2">
-                      <select class="select">
-                        <option value="1">Position</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                      </select>
-                    </div>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline">
-                        <input type="text" id="form3Examplev4" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplev4">Position</label>
-                      </div>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-  
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev5" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplev5">Bussines Arena</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-6">
-  
-                        <select class="select">
-                          <option value="1">Employees</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                          <option value="4">Four</option>
-                        </select>
-  
-                      </div>
-                    </div>
-  
-                  </div>
-                </div>
-                <div class="col-lg-6 bg-indigo text-white">
-                 
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="mb-4">
+        <h3>Welcome and <strong>Register</strong></h3>
+        <p class="mb-4">Fill the form to register your account</p>
+       </div>
+
+       <form [formGroup]="registerFormGroup" (ngSubmit)="register()">
+        <div class="form-group first">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" formControlName="email">
+       </div>
+        <div class="form-group last mb-4">
+          <label for="name">Name</label>
+          <input type="name" class="form-control" formControlName="name">
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="d-flex mb-5 align-items-center">
+          <label class="control control--checkbox mb-0"><span class="caption">Gender</span></label>
+          <select size="1" class="form-control" formControlName="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+
+          </select>
+        </div>
+          <button type="submit" value="Log In" class="btn text-white btn-block btn-primary">
+         sign in with
+        </button>
+      
+       
+      </form>
+  </div>
+  </div>

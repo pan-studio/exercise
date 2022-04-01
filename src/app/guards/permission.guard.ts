@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { StorageService } from '../services/storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PermissionGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
+  
+  
+  constructor(private storageService: StorageService, private router: Router) { }
+
   canActivate(
-    route: ActivatedRouteSnapshot,
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+    let url: string = state.url;
+    return this.checkUserRole(next);
   }
   canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+    return this.canActivate(next, state);
   }
   canDeactivate(
     component: unknown,
@@ -28,4 +34,15 @@ export class PermissionGuard implements CanActivate, CanActivateChild, CanDeacti
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
+
+  checkUserRole(route: ActivatedRouteSnapshot): boolean {
+    
+    if (this.storageService.isLoggedIn()) {
+      return false;
+    }
+
+    this.router.navigate(['/']);
+    return true;
+  }
+  
 }
