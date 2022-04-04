@@ -10,7 +10,7 @@ export class StorageService {
 
 
 
-  public setLoggedUser(user:UserData) {
+  public setLoggedUser(user:any) {
 
      localStorage.setItem("user",JSON.stringify(user));
      localStorage.setItem("isLogged", "true");
@@ -25,7 +25,7 @@ export class StorageService {
   }
 
   public isLoggedIn(){
-    if(localStorage.getItem("isLogged") && localStorage.getItem("user"))
+    if(localStorage.getItem("isLogged") && localStorage.getItem("user") && localStorage.getItem("isLogged") == "true")
       return true;
     return false;
   }

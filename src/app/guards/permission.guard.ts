@@ -38,7 +38,7 @@ export class PermissionGuard implements CanActivate, CanActivateChild, CanDeacti
   checkUserRole(route: ActivatedRouteSnapshot): boolean {
     
     if (this.storageService.isLoggedIn()) {
-      return false;
+      return true;
     }
 
     this.router.navigate(['/']);
@@ -46,3 +46,5 @@ export class PermissionGuard implements CanActivate, CanActivateChild, CanDeacti
   }
   
 }
+
+

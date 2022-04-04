@@ -41,12 +41,9 @@
   </div>
 
   <!-- Resources -->
-  <div *ngIf="isLogged == false">
-      <app-login-form></app-login-form>
-  </div>
-  <div *ngIf="isLogged == true">
-    <app-post-list></app-post-list>
-  </div>
+  <router-outlet>
+  
+</router-outlet>
 
      
 
@@ -80,4 +77,3 @@
 
 
 
-<router-outlet></router-outlet>

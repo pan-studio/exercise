@@ -27,7 +27,7 @@ export class RegisterFormComponent implements OnInit {
     }
   this.userService.registerUser(userData).subscribe(
       res=>{
-
+        
       }
     )
   }

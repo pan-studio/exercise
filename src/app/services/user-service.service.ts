@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserData } from '../interfaces/user_data.interface';
 import { environment } from 'src/environments/environment';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserService {
     }),
   };
 
-  constructor(    private httpClient: HttpClient    ) { }
+  constructor(  private storageService:StorageService,   private httpClient: HttpClient    ) { }
 
 
 
@@ -26,13 +27,13 @@ export class UserService {
   } 
   
  public getAllUser(): Observable<UserData[]> {
-    const completeUrl = environment.beUrl+'/100';
+    const completeUrl = environment.beUrl+'';
     return this.httpClient
       .get<UserData[]>(completeUrl);
   } 
 
   //mock true because don't exist a login rest call
- public loginUser(data:UserData): boolean{
-   return true;
+ public loginUser(email:string, password:string){
+    this.storageService.setLoggedUser({email:email});
   } 
 }

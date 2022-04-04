@@ -7,7 +7,9 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { PostListComponent } from './components/post-list/post-list.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
