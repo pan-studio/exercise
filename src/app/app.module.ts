@@ -9,7 +9,6 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { PostListComponent } from './components/post-list/post-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
